@@ -1,0 +1,46 @@
+
+<div id="header-div">
+  <h1>Eat-Da-Burger</h1>
+  <img id="burger-image" src="https://www.freepngimg.com/thumb/burger/6-2-burger-png-image-thumb.png" alt="burger" height="100" width="100">
+</div>
+
+
+
+
+<h2 class="ordered">Ordered Burgers</h2>
+
+
+<ul class="ordered">
+  {{#each burger}}
+    {{#unless devoured}}
+        <li>
+            <p>{{this.burger_name}}</p>
+            <button data-id="{{this.id}}" data-devoured="{{this.devoured}}" class="button-dvr">Devour it!</button>
+        </li>
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<div id="devoured">
+  <h2>Devoured Burgers</h2>
+
+  <ul>
+    {{#each burger}}
+      {{#if devoured}}
+      <li>
+          <p>{{this.burger_name}}</p>
+      </li>
+      {{/if}}
+    {{/each}}
+  </ul>
+</div>
+
+
+
+
+<form id="addBurger">
+  <h3>Add new Burger</h3>
+  <textarea type="text" name="burger_name" id="newBurger"></textarea>
+  <br>
+  <button type="submit" id="addNewBurger">Add to Order</button>
+</form>
